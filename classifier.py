@@ -12,7 +12,7 @@ with open("classes.txt", "r") as file:
             left, right, *res = line.split(":")
             llist.append(left)
             rlist.append(right)
-class Classificator:
+class Classifier:
     def __init__(self, text):
         self.text = text
     def load(self):
