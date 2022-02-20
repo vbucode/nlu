@@ -22,6 +22,4 @@ class Classificator:
                 if i == j:
                     classlist.append(rlist[llist.index(j)])
                     flag = 0
-            if flag != 0:
-                classlist.append(i)
         return classlist
