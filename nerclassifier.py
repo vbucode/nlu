@@ -20,8 +20,8 @@ class NerClassifier:
             flag = 1
             for j in llist:
                 if i == j:
-                    nerlist.append(rlist[llist.index(j)])
+                    nerlist.append((i, rlist[llist.index(j)]))
                     flag = 0
             if flag != 0:
-                nerlist.append(i)
+                nerlist.append((i, "out")
         return nerlist
