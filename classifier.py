@@ -17,9 +17,7 @@ class Classifier:
         self.text = text
     def load(self):
         for i in self.text:
-            flag = 1
             for j in llist:
                 if i == j:
                     classlist.append(rlist[llist.index(j)])
-                    flag = 0
         return classlist
