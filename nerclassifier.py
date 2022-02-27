@@ -20,7 +20,7 @@ class NerClassifier:
             flag = 1
             for j in llist:
                 if i == j:
-                    nerlist.append((i, rlist[llist.index(j)]))
+                    nerlist.append((i, rlist[llist.index(j)].replace("\n", "")))
                     flag = 0
                     break
             if flag != 0:
