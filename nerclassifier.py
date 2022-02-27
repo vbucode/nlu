@@ -22,6 +22,7 @@ class NerClassifier:
                 if i == j:
                     nerlist.append((i, rlist[llist.index(j)]))
                     flag = 0
+                    break
             if flag != 0:
                 nerlist.append((i, "out")
         return nerlist
