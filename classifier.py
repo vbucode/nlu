@@ -20,10 +20,7 @@ class Classificator:
             flag = 1
             for j in llist:
                 if i == j:
-                    classlist.append(i)
-                    classlist.append(rlist[llist.index(j)])
+                    classlist.append(rlist[llist.index(j)].replace("\n", ""))
                     flag = 0
                     break
-            if flag != 0:
-                classlist.append(i)
         return classlist
