@@ -1,5 +1,3 @@
 # nlu
 
-ner
-
-classification
+ner , classification on russian language
