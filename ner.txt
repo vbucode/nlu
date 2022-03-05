@@ -1,3 +1,8 @@
+apple:org
+amazon:org
+alphabet:org
+google:org
+microsoft:org
 август:date
 августа:date
 августе:date
