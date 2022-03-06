@@ -1,4 +1,4 @@
-#class NERClassification
+#class NER Classification
 
 nerlist = []
 llist = []
