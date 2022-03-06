@@ -12,7 +12,7 @@ with open("ner.txt", "r") as file:
             left, right, *res = line.split(":")
             llist.append(left)
             rlist.append(right)
-class NerClassifier:
+class NerClassificator:
     def __init__(self, text):
         self.text = text
     def load(self):
