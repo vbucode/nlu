@@ -1,5 +1,5 @@
 from words import Words
-from nerclassifier import NerClassifier
+from nerclassifier import NerClassificator
 from classifier import Classificator
 import corpus
 
@@ -28,7 +28,7 @@ for i in wl:
 print("\nwithout stop words:\n", stopfiltered)
 
 # ner classification
-ner = NerClassifier(stopfiltered)
+ner = NerClassificator(stopfiltered)
 n = ner.load()
 print("\nner classification:\n", n)
 
