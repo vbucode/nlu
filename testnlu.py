@@ -1,5 +1,6 @@
 from words import Words
 from nerclassifier import NerClassifier
+from classifier import Classificator
 import corpus
 
 
@@ -32,6 +33,6 @@ n = ner.load()
 print("\nner classification:\n", n)
 
 # classification
-clas = Classirier(stopfiltered)
+clas = Classificator(stopfiltered)
 s = clas.load()
 print("\nclassification:\n", s)
