@@ -33,6 +33,6 @@ n = ner.load()
 print("\nner classification:\n", n)
 
 # classification
-clas = Classificator(stopfiltered)
-s = clas.load()
-print("\nclassification:\n", s)
+cl = Classificator(stopfiltered)
+c = cl.load()
+print("\nclassification:\n", c)
