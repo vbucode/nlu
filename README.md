@@ -2,4 +2,4 @@
 
 ner , classification on russian language
 
-requirements: module tokenize, wordvector, words from my repositories
+requirements: modules tokenize.py, words.py, wordvector.py from my repositories
