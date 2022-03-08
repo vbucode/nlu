@@ -4,7 +4,7 @@ classlist = []
 llist = []
 rlist = []
 
-with open("classes.txt", "r") as file:
+with open("classesru.txt", "r") as file:
     for line in file:
         if not line:
             continue
