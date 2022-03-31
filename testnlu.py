@@ -23,8 +23,7 @@ print("\nworld tokenize:\n", wl)
 
 # load stop words
 stop = corpus.stopwords("russian")
-for i in wl:
-        stopfiltered = [str(x) for x in wl if x not in stop]
+stopfiltered = [str(x) for x in wl if x not in stop]
 print("\nwithout stop words:\n", stopfiltered)
 
 # ner classification
