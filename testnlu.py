@@ -1,8 +1,5 @@
 from words import Words
 from nerclassifier import NerClassificator
-from classifier import Classificator
-import corpus
-
 
 xlist = []
 
@@ -21,17 +18,7 @@ w = Words(varstring)
 wl = w.load()
 print("\nworld tokenize:\n", wl)
 
-# load stop words
-stop = corpus.stopwords("russian")
-stopfiltered = [str(x) for x in wl if x not in stop]
-print("\nwithout stop words:\n", stopfiltered)
-
 # ner classification
-ner = NerClassificator(stopfiltered)
+ner = NerClassificator(wl)
 n = ner.load()
 print("\nner classification:\n", n)
-
-# classification
-cl = Classificator(stopfiltered)
-c = cl.load()
-print("\nclassification:\n", c)
