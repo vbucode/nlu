@@ -1,4 +1,4 @@
-from words import Words
+import re
 
 nerlist = []
 llist = []
@@ -17,7 +17,7 @@ class NerClassificator:
     def __init__(self, text):
         self.text = text
     def load(self):
-        global var
+        var = 0
         for i in self.text:
             count = 0
             while var > 0:
@@ -26,19 +26,19 @@ class NerClassificator:
             else:
                 for j in llist:
                     count += 1
-                    w = Words(j)
-                    wl = w.load()
-                    if wl[0] == i and len(wl) == 1:
+                    clearlist = []
+                    clearlist = re.split("[\-\s]", j)
+                    if clearlist[0] == i and len(clearlist) == 1:
                         nerlist.append((i, rlist[llist.index(j)].replace("\n", "")))
                         break
-                    elif wl[0] == i and len(wl) > 1:
+                    elif clearlist[0] == i and len(clearlist) > 1:
                         count2 = 0
                         triallist = []
-                        for k in wl:
+                        for k in clearlist:
                             count2 += 1
                             if k == self.text[self.text.index(i) + count2 - 1]:
                                 triallist.append([k, rlist[llist.index(j)].replace("\n", "")])
-                        if len(triallist) == len(wl):
+                        if len(triallist) == len(clearlist):
                             for n in triallist:
                                 if triallist.index(n) == 0:
                                     nerlist.append((n[0], "b-" + n[1]))
@@ -46,7 +46,7 @@ class NerClassificator:
                                     nerlist.append((n[0], "i-" + n[1]))
                                 elif triallist.index(n) != 0 and triallist.index(n) != -1:
                                     nerlist.append((n[0], n[1]))
-                            var = len(wl) - 1
+                            var = len(clearlist) - 1
                         else:
                             nerlist.append((i, rlist[llist.index(j)].replace("\n", "")))
                         break
