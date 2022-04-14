@@ -1,7 +1,6 @@
 from words import Words
 
 nerlist = []
-triallist = []
 llist = []
 rlist = []
 var = 0
@@ -34,6 +33,7 @@ class NerClassificator:
                         break
                     elif wl[0] == i and len(wl) > 1:
                         count2 = 0
+                        triallist = []
                         for k in wl:
                             count2 += 1
                             if k == self.text[self.text.index(i) + count2 - 1]:
