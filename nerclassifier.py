@@ -3,7 +3,6 @@ import re
 nerlist = []
 llist = []
 rlist = []
-var = 0
 
 with open("nerru.txt", "r") as file:
     for line in file:
