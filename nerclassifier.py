@@ -38,15 +38,17 @@ class NerClassificator:
                             count2 += 1
                             if k == self.text[self.text.index(i) + count2 - 1]:
                                 triallist.append([k, rlist[llist.index(j)].replace("\n", "")])
-                            if len(triallist) == len(wl):
-                                for n in triallist:
-                                    if triallist.index(n) == 0:
-                                        nerlist.append((n[0], "b-" + n[1]))
-                                    elif triallist.index(n) == len(triallist) - 1:
-                                        nerlist.append((n[0], "i-" + n[1]))
-                                    elif triallist.index(n) != 0 and triallist.index(n) != -1:
-                                        nerlist.append((n[0], n[1]))
-                                var = len(wl) - 1
+                        if len(triallist) == len(wl):
+                            for n in triallist:
+                                if triallist.index(n) == 0:
+                                    nerlist.append((n[0], "b-" + n[1]))
+                                elif triallist.index(n) == len(triallist) - 1:
+                                    nerlist.append((n[0], "i-" + n[1]))
+                                elif triallist.index(n) != 0 and triallist.index(n) != -1:
+                                    nerlist.append((n[0], n[1]))
+                            var = len(wl) - 1
+                        else:
+                            nerlist.append((i, rlist[llist.index(j)].replace("\n", "")))
                         break
                     elif count == len(llist):
                         nerlist.append((i, "out"))
