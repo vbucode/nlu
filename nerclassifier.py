@@ -11,7 +11,7 @@ with open("nerru.txt", "r") as file:
         else:
             left, right, *res = line.split(":")
             llist.append(left)
-            rlist.append(right)
+            rlist.append(right.replace("\n", ""))
 class NerClassificator:
     def __init__(self, text):
         self.text = text
@@ -26,21 +26,21 @@ class NerClassificator:
                 try:
                     if i.isnumeric():
                         triallist = []
-                        triallist.append([i, "date"])
-                        if rlist[llist.index(self.text[self.text.index(i) + 1])].replace("\n", "") == "date":
+                        if rlist[llist.index(self.text[self.text.index(i) + 1])] == "date":
+                            triallist.append([i, "date"])
                             triallist.append([self.text[self.text.index(i) + 1], "date"])
                             for n in triallist:
                                 nerlist.append((n[0], n[1]))
                             var = len(triallist) - 1
                 except ValueError:
                     nerlist.append((i, "out"))
-                else:
+                if i.isnumeric() == False:
                     for j in llist:
                         count += 1
                         clearlist = []
                         clearlist = re.split("[\-\s]", j)
                         if clearlist[0] == i and len(clearlist) == 1:
-                            nerlist.append((i, rlist[llist.index(j)].replace("\n", "")))
+                            nerlist.append((i, rlist[llist.index(j)]))
                             break
                         elif clearlist[0] == i and len(clearlist) > 1:
                             count2 = 0
@@ -48,7 +48,7 @@ class NerClassificator:
                             for k in clearlist:
                                 count2 += 1
                                 if k == self.text[self.text.index(i) + count2 - 1]:
-                                    triallist.append([k, rlist[llist.index(j)].replace("\n", "")])
+                                    triallist.append([k, rlist[llist.index(j)]])
                             if len(triallist) == len(clearlist):
                                 for n in triallist:
                                     if triallist.index(n) == 0:
@@ -59,7 +59,7 @@ class NerClassificator:
                                         nerlist.append((n[0], n[1]))
                                 var = len(clearlist) - 1
                             else:
-                                nerlist.append((i, rlist[llist.index(j)].replace("\n", "")))
+                                nerlist.append((i, rlist[llist.index(j)]))
                             break
                         elif count == len(llist):
                             nerlist.append((i, "out"))
