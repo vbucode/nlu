@@ -4,7 +4,7 @@ nerlist = []
 llist = []
 rlist = []
 
-with open("nerru.txt", "r") as file:
+with open("ner-ru.txt", "r") as file:
     for line in file:
         if not line:
             continue
