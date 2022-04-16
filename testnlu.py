@@ -3,8 +3,6 @@ from nerclassifier import NerClassificator
 
 xlist = []
 
-# to awoid some problems with not good writting text
-# для избежания возможной ошибки при неправильном форматировании данных
 with open("data.txt", "r") as file:
     for row in file:
         if not row:
@@ -16,7 +14,7 @@ with open("data.txt", "r") as file:
 # tokenize string to words
 w = Words(varstring)
 wl = w.load()
-print("\nworld tokenize:\n", wl)
+#print("\nworld tokenize:\n", wl)
 
 # ner classification
 ner = NerClassificator(wl)
