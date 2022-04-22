@@ -1,18 +1,11 @@
 from words import Words
 from nerclassifier import NerClassificator
 
-xlist = []
-
 with open("data.txt", "r") as file:
-    for row in file:
-        if not row:
-            continue
-        else:
-            xlist.append(row)
-        varstring = " ".join(xlist)
+    f = file.read()
 
 # tokenize string to words
-w = Words(varstring)
+w = Words(f)
 wl = w.load()
 #print("\nworld tokenize:\n", wl)
 
