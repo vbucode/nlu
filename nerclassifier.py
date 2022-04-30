@@ -30,7 +30,12 @@ class NerClassificator:
                             triallist.append([i, "date"])
                             triallist.append([self.text[self.text.index(i) + 1], "date"])
                             for n in triallist:
-                                nerlist.append((n[0], n[1]))
+                                if triallist.index(n) == 0:
+                                    nerlist.append((n[0], "b-" + n[1]))
+                                elif triallist.index(n) == len(triallist) - 1:
+                                    nerlist.append((n[0], "i-" + n[1]))
+                                elif triallist.index(n) != 0 and triallist.index(n) != -1:
+                                    nerlist.append((n[0], n[1]))
                             var = len(triallist) - 1
                 except ValueError:
                     nerlist.append((i, "out"))
