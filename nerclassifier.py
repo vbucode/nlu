@@ -16,12 +16,13 @@ with open("ner-ru.txt", "r") as file:
 month = ["январь", "января", "февраль", "февраля", "март", "марта", "апрель", "апреля",
          "май", "мая", "июнь", "июня", "июль", "июля", "август", "августа",
          "сентябрь", "сентября", "октябрь", "октября", "ноябрь", "ноября", "декабрь", "декабря",
-         "года"]
+         "года", "году"]
 
 class NerClassificator:
-    def __init__(self, text):
-        self.text = text
-    def load(self):
+    def __init__(self):
+        pass
+    def load(self, text):
+        self.text = text 
         var = 0
         for i in self.text:
             count = 0
@@ -61,6 +62,7 @@ class NerClassificator:
                                     elif triallist.index(n) != 0 and triallist.index(n) != -1:
                                         nerlist.append((n[0], n[1]))
                                 var = len(clearlist) - 1
+                                break
                             else:
                                 nerlist.append((i, rlist[llist.index(j)]))
                                 break

@@ -4,12 +4,12 @@ from nerclassifier import NerClassificator
 with open("data.txt", "r") as file:
     f = file.read()
 
-# tokenize to words
+# tokenize string to words
 w = Words(f)
 wl = w.load()
-#print("\nword tokenize:\n", wl)
+#print("\nworld tokenize:\n", wl)
 
 # ner classification
-ner = NerClassificator(wl)
-n = ner.load()
+ner = NerClassificator()
+n = ner.load(wl)
 print("\nner classification:\n", n)
