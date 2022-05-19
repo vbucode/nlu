@@ -30,7 +30,7 @@ class NerClassificator:
                 var -= 1
                 break
             else:
-                if i.isnumeric() and int(i):
+                if i.isnumeric() == True:
                     flag = 0
                     for k in month:
                         if k == self.text[self.text.index(i) + 1]:
