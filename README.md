@@ -1,5 +1,5 @@
 # nlu
 
-ner support russian language
+ner ru
 
 requirements: module words.py from my repository
