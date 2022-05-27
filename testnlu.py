@@ -1,5 +1,6 @@
 from words import Words
 from nerclassifier import NerClassificator
+import corpus
 
 with open("data.txt", "r") as file:
     f = file.read()
@@ -9,7 +10,10 @@ w = Words(f)
 wl = w.load()
 #print("\nworld tokenize:\n", wl)
 
+# load ner
+ner = corpus.ner()
+
 # ner classification
-ner = NerClassificator()
-n = ner.load(wl)
+ninst = NerClassificator(*ner)
+n = ninst.load(wl)
 print("\nner classification:\n", n)
