@@ -1,5 +1,5 @@
 # nlu
 
-ner ru
+ner (ru)
 
 requirements: module words.py from my repository
